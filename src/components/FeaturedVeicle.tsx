@@ -12,7 +12,7 @@ return(
             <p>Explore our selection of premium vehicles available for your next adventure.</p>
         </div>
 
-        <div>
+        <div className="w-full flex flex-col gap-5">
             {cars.map((item)=>{
                 return <CarCard 
                  key={item._id}

@@ -30,12 +30,13 @@ const router = createBrowserRouter([
               { path: "authenticate",
                   Component: Authenticate
               },
-          ],
-      },
-      {
+                    {
           path: "*",
           Component: NotFound
       },
+          ],
+      },
+
 ])
 
 createRoot(document.getElementById('root')!).render(
