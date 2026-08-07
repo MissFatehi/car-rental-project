@@ -1,4 +1,10 @@
+import { useState } from "react";
+import { useCarStore } from "../store/CarStore";
+
 const Banner =()=>{
+
+    const [mlocation,setMlocation]= useState("");
+    const {filterCarsLocation}= useCarStore();
 
     return(
        <section className="flex flex-col justify-center items-center gap-8 bg-[#f1f5f9] p-5">
@@ -8,8 +14,11 @@ const Banner =()=>{
           <form className="w-full flex flex-col gap-8 bg-white shadow-[5_10px_10px_rgba(0,0,0,0.25)] p-5 rounded-md">
 
            <div className="flex flex-col">
-             <select name="location" id="location">
-                <option value="NewYork">NewYork</option>
+             <select name="location" id="location" value={mlocation} onChange={(e)=>{const value = e.target.value;
+               setMlocation(value);
+                }}>
+               <option value="َAll">All</option>
+                <option value="New York">NewYork</option>
                 <option value="Los Angeles">Los Angeles</option>
                 <option value="Houston">Houston</option>
                 <option value="Chicago">Chicago</option>
@@ -27,7 +36,7 @@ const Banner =()=>{
             <label htmlFor="Return Date">Return Date</label>
            </div>
 
-           <button className="w-1/2 p-2 rounded-3xl bg-blue-700 text-white">Search</button>
+           <button onClick={()=>{filterCarsLocation({location:mlocation})}} type="button" className="w-1/2 p-2 rounded-3xl bg-blue-700 text-white">Search</button>
 
           </form>
 

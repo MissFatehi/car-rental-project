@@ -3,10 +3,12 @@ import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { FiAlignRight } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import { useAuthStore } from "../store/AuthStore";
 
 const NavBar = ()=>{
   
      const [toggle,setToggle]=useState<boolean>(false);
+     const {openLogin}= useAuthStore()
 
     return(
         <section className="w-full bg-[#f1f5f9] relative">
@@ -24,7 +26,7 @@ const NavBar = ()=>{
           <NavLink to="cars">Cars</NavLink>
           <NavLink to="booking">My Booking</NavLink>
           <NavLink to="cars">List Cars</NavLink>
-          <NavLink to="authenticate"><button className="px-5 py-2 bg-blue-700 text-white rounded-xl fle">Login</button></NavLink>
+         <button onClick={openLogin} className="px-5 py-2 bg-blue-700 text-white rounded-xl fle">Login</button>
         </nav>
 
         </section>

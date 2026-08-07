@@ -12,8 +12,8 @@ const CarCard = (item:ICarData)=>{
         <NavLink to={`/cars/${item._id}`} >
             <section className=" w-[90%] h-80 flex flex-col justify-start gap-5 overflow-hidden rounded-xl shadow-lg">
           
-            <div className="w-full relative h-1/2">
-         <img src={item.image} alt="" className="w-full h-full" />
+        <div className="w-full relative h-1/2">
+         <img src={item.image} alt={`${item.brand}`} className="w-full h-full" />
          <p className="tag absolute top-5 left-5 bg-blue-600 text-white px-2 py-1">{(item.isAvaliable) ? "Available" : "notAvailable"}</p>
         <p className="price absolute bottom-5 right-5 bg-black text-white p-2 rounded-xs">{item.pricePerDay}$</p>
             </div>

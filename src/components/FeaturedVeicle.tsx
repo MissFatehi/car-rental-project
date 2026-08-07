@@ -4,7 +4,8 @@ import { useCarStore } from "../store/CarStore";
 
 const FeaturedVeicle = ()=>{
 
-    const {cars}=useCarStore();
+    const {filteredCars}=useCarStore();
+
 return(
     <section className="w-full flex flex-col justify-center items-center gap-8 p-5">
         <div className="text-center">
@@ -13,7 +14,7 @@ return(
         </div>
 
         <div className="w-full flex flex-col gap-5">
-            {cars.map((item)=>{
+            {filteredCars.map((item)=>{
                 return <CarCard 
                  key={item._id}
                  {...item}/>

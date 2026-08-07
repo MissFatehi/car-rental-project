@@ -1,9 +1,9 @@
 const Booking = ()=>{
 
     return(
-        <>
-        Booking
-        </>
+        <div>
+        My Booking
+        </div>
     )
 }
 export default Booking;

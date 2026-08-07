@@ -27,9 +27,6 @@ const router = createBrowserRouter([
               { path: "cars/:id",
                   Component: CarDetail
               },
-              { path: "authenticate",
-                  Component: Authenticate
-              },
                     {
           path: "*",
           Component: NotFound

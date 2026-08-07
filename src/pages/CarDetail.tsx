@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCarStore } from "../store/CarStore";
 import { RiGroupLine } from "react-icons/ri";
 import { BsFuelPump } from "react-icons/bs";
@@ -12,8 +12,10 @@ const CarDetail = ()=>{
     const {id} = useParams();
     const car = useCarStore((state)=>{ return state.cars.find((car)=> car._id === id) })
     console.log(car?.image)
+    const  navigate = useNavigate();
     return(
   <div>
+    <p onClick={()=>{navigate(-1)}} className="px-5"> go back</p>
         <div className="flex flex-col justify-center items-center pt-8 gap-6 ">
               <div
                 className="flex flex-col justify-center mb-60 items-start  relative"
@@ -125,7 +127,7 @@ const CarDetail = ()=>{
                       </div>
                     </div>
                     <div className="flex justify-center items-center ml-2">
-                      <button className="bg-[#2563eb] font-bold text-white w-70 h-12 rounded-xl justify-center items-center">
+                      <button onClick={()=>alert("not authorized")} className="bg-[#2563eb] font-bold text-white w-70 h-12 rounded-xl justify-center items-center">
                         Book Now
                       </button>
                     </div>
